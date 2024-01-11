@@ -1,0 +1,117 @@
+<div class="root">
+    <!-- client -->
+    <div class="title">Cliente</div>
+    <div class="card">
+        <div class="row">
+            <div class="column">
+                <label for="">Nombres</label>
+                <p>{{list.client.name}}</p>
+            </div>
+            <div class="column">
+                <label for="">Apellidos</label>
+                <p>{{list.client.lastName}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Tipo de documento</label>
+                <p>{{list.client.documentType}}</p>
+            </div>
+            <div class="column">
+                <label for="">Documento</label>
+                <p>{{list.client.document}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Email</label>
+                <p>{{list.client.email}}</p>
+            </div>
+            <div class="column">
+                <label for="">Telefono</label>
+                <p>{{list.client.phone}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Hotel -->
+    <div class="title">Hotel {{list.hotel.name}}</div>
+    <div class="card">
+        <div class="row">
+            <div class="column">
+                <label for="">Descripcion</label>
+                <p>{{list.hotel.descripcion}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Room -->
+    <div class="title">Habitacion</div>
+    <div class="card">
+        <div class="row">
+            <div class="column">
+                <label for="">Ciudad</label>
+                <p>{{list.room.city}}</p>
+            </div>
+            <div class="column">
+                <label for="">Ubicación</label>
+                <p>{{list.room.location}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Capacidad</label>
+                <p>{{list.room.capacity}}</p>
+            </div>
+            <div class="column">
+                <label for="">Precio</label>
+                <p>{{list.room.price}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Costo base</label>
+                <p>{{list.room.cost}}</p>
+            </div>
+            <div class="column">
+                <label for="">Tipo</label>
+                <p>{{list.room.type}}</p>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Booking -->
+    <div class="title">Reservacion</div>
+    <div class="card">
+        <div class="row">
+            <div class="column">
+                <label for="">Fecha Ingreso</label>
+                <p>{{list.start}}</p>
+            </div>
+            <div class="column">
+                <label for="">Fecha salida</label>
+                <p>{{list.end}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Ocupantes</label>
+                <p>{{list.quantityPeople}}</p>
+            </div>
+
+            <div class="column">
+                <label for="">Precio</label>
+                <p>{{list.price}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="">Activo</label>
+                <p>{{list.enabled ? 'Si': 'No'}}</p>
+            </div>
+            <div class="column"></div>
+        </div>
+
+    </div>
+    <div class="btn-back">
+        <button mat-raised-button routerLink="/layout/booking"  >Volver</button>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+.root-toolbar {
+    width: 100%;
+    height: 64px;
+    border-bottom: 1px solid rgba(53, 51, 51, 0.861);
+    .container_nav{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        padding: 0 40px 0 40px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .container_btn {
+        display: flex;
+        gap: 20px;
+    }
+    .container-title{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        button{
+            &:hover{
+                background-color: rgba(255, 255, 255, 0.285);
+            }
+        }
+    }
+    .nav-profile {
+
+        width: 150px;
+        height: 50px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        // background-color: red;
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.285);
+        }
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+        }
+        .name-profile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            
+            h1{
+                font-size: 15px;
+            }
+        }
+
+        
+    }
+}

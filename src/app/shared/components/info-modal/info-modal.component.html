@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="title">
+        <span class="material-symbols-outlined">
+            {{params.icon}}
+            </span>
+        <h1 mat-dialog-title>{{params.title}}</h1>
+    </div>
+    <div mat-dialog-content class="descripcion">
+        {{params.description}}
+    </div>
+    <div mat-dialog-actions class="container-btn">
+        <button mat-button matStepperPrevious (click)="close()">Cancelar</button>
+        <button mat-button matStepperNext color="primary" (click)="register()">{{params.btnTitle}}</button>
+
+    </div>
+</div>

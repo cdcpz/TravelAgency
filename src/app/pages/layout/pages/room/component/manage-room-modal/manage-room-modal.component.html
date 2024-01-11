@@ -1,0 +1,120 @@
+<div class="root">
+    <div class="title">
+        <h3>Registrar Habitacion</h3>
+    </div>
+    <mat-stepper headerPosition="top">
+        <mat-step>
+            <form class="form" [formGroup]="basicData">
+                <ng-template matStepLabel>Datos Basicos</ng-template>
+                <div class="container-grid">
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Hotel</mat-label>
+                            <mat-select formControlName="hotelId">
+                                <mat-option value="-1">Seleccione</mat-option>
+                                <mat-option *ngFor="let hotel of params.hotel"  [value]="hotel.id">{{hotel.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Ubicación</mat-label>
+                            <input type="text" matInput formControlName="location">
+                        </mat-form-field>
+                    </div>
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Ciudad</mat-label>
+                            <input type="text" matInput formControlName="city">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="container-grid">
+
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Capacidad</mat-label>
+                            <input type="text" matInput placeholder="" formControlName="capacity">
+                        </mat-form-field>
+                    </div>
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Tipo habitacion</mat-label>
+                            <mat-select formControlName="type">
+                                <mat-option value="-1">Seleccione</mat-option>
+                                <mat-option *ngFor="let TypeRoom of params.type;"  [value]="TypeRoom.id">{{TypeRoom.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="grid"> </div>
+                </div>
+
+
+
+            </form>
+            <div class="container-btn">
+                <button mat-button matStepperNext>Siguiente</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <form class="form" [formGroup]="accountingData">
+                <ng-template matStepLabel>Datos Contables</ng-template>
+                <div class="container-grid">
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Costo base</mat-label>
+                            <input type="number" matInput formControlName="cost">
+                        </mat-form-field>
+                    </div>
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Impuesto</mat-label>
+                            <input type="number" matInput formControlName="tax">
+                        </mat-form-field>
+                    </div>
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Ganancia</mat-label>
+                            <input type="number" matInput placeholder="0-100" formControlName="profit">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="container-grid">
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Precio</mat-label>
+                            <input type="number" readonly="true" matInput [value]="price">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </form> 
+            <div class="container-btn">
+                <div class="container-btn">
+                    <button mat-button matStepperPrevious>Anterior</button>
+                    <button mat-button matStepperNext>Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step>
+            <form class="form" [formGroup]="image">
+                <ng-template matStepLabel>Imagen</ng-template>
+                <div class="container-grid">
+                    <div class="grid">
+                        <mat-form-field appearance="outline" class="input">
+                            <mat-label>Imagen URL</mat-label>
+                            <input type="text" matInput formControlName="imageUrl">
+                        </mat-form-field>
+                    </div>
+                    <div class="container-preview">
+                        <img src="{{preview}}" alt="">
+                    </div>
+                </div>
+            </form>
+            <div class="container-btn">
+                <button mat-button matStepperPrevious>Anterior</button>
+                <button mat-button matStepperNext color="primary" (click)="saveRoom()">Guardar</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

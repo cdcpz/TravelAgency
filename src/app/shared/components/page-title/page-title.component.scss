@@ -1,0 +1,18 @@
+.root {
+    width: 100%;
+    height: auto;
+    background-color: #3f51b5d1;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 4px 40px;
+    box-sizing: border-box;
+
+    mat-icon {
+        color: white;
+    }
+
+    label {
+        color: white;
+    }
+}

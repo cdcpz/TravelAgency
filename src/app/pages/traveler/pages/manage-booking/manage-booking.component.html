@@ -1,0 +1,190 @@
+<div class="root">
+    <div class="root-manage">
+        <div class="card booking">
+            <label for="">Datos de la reserva</label>
+    
+            <div class="card-content">
+                <form action="" [formGroup]="filterRequestRooms">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline" >
+                                <mat-label>Ciudad</mat-label>
+                                <input formControlName="city" [disabled]="enabled" matInput placeholder="Placeholder">
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>N° acompañantes</mat-label>
+                                <input type="number" formControlName="quantityPeople" matInput placeholder="Placeholder">
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Desde</mat-label>
+                                <input formControlName="start" matInput [matDatepicker]="sincePicker">
+                                <mat-datepicker-toggle matIconSuffix [for]="sincePicker"></mat-datepicker-toggle>
+                                <mat-datepicker #sincePicker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Hasta</mat-label>
+                                <!-- <input matInput [matDatepicker]="toPicker" formControlName="birth"> -->
+                                <input matInput [matDatepicker]="toPicker" formControlName="end">
+                                <mat-datepicker-toggle matIconSuffix [for]="toPicker"></mat-datepicker-toggle>
+                                <mat-datepicker #toPicker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col flex-end">
+                            <button (click)="filterRooms()" [disabled]="id" class="btn" mat-raised-button color="primary">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="card room">
+            <label for="">Seleccione una habitación</label>
+            <div class="card-content">
+                <div class="scrolling">
+                    @for(room of rooms; track room) {
+                        <app-card-hotel 
+                            [room]="room"
+                            [city]="room.city" 
+                            [location]="room.location" 
+                            [imageUrl]="room.imageUrl"
+                            [price]="room.price"
+                            [hotel]="room.hotel.name"
+                            [quantityPeople]="room.capacity"
+                            (selected)="getSelectedRoom($event)"
+                        >
+                        </app-card-hotel>
+                    }
+                </div>
+                @if(selectionRoom) {
+                    <span for="">Usted desea reservar en {{selectionRoom.hotel.name}}</span>
+                }
+            </div>
+        </div>
+        <!-- <div class="card room">
+            <label for="">Seleccione una habitación</label>
+            <div class="card-content">
+                <label for="">Usted desea reservar en: {{selectionRoom}}</label>
+                <div class="scrolling">
+                    @for(room of rooms; track room) {
+                    <app-card-hotel 
+                    [imageUrl]="" 
+                    [price]=""
+                    [location]=""
+                    [city]=""
+                    [capacity]=""
+                    ></app-card-hotel>
+                    }
+                </div>
+            </div>
+        </div> -->
+    
+        <div class="card guests">
+            <label for="">Acompañantes</label>
+            <div class="card-content">
+                <!-- <div class="row">
+    
+                </div> -->
+                <div class="guests-manage">
+                    <div class="flex-end">
+                        <button class="btn" mat-raised-button color="primary" [disabled]="id" (click)="manageGuest()">Agregar</button>
+                    </div>
+                    <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="dataSource">
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="document">
+                                <th mat-header-cell *matHeaderCellDef> Documento </th>
+                                <td mat-cell *matCellDef="let element"> {{element.document}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef> Nombres </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="lastName">
+                                <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+                                <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="gender">
+                                <th mat-header-cell *matHeaderCellDef> Genero </th>
+                                <td mat-cell *matCellDef="let element">
+                                    {{getGender(element.gender)}}
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="phone">
+                                <th mat-header-cell *matHeaderCellDef> Telefono </th>
+                                <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-icon-button [disabled]="id" (click)="manageGuest(element)">
+                                        <mat-icon color="primary" fontIcon="edit">
+                                        </mat-icon>
+                                    </button>
+                                    <button mat-icon-button [disabled]="id" (click)="remove(element)">
+                                        <mat-icon fontIcon="delete">
+                                        </mat-icon>
+                                    </button>
+                                </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+    
+                        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+                        </mat-paginator>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="card emergency">
+            <label for="">Contacto de emergencia</label>
+            <div class="card-content">
+                <form [formGroup]="emergencyForm">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nombre</mat-label>
+                                <input matInput placeholder="Placeholder" formControlName="name">
+                                <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field>
+                        </div>
+                        <div class="col phone">
+                            <mat-form-field appearance="outline" class="indicative">
+                                <mat-label>Ind</mat-label>
+                                <input type="text" matInput placeholder="58" formControlName="indicative">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="input-phone">
+                                <mat-label>Telefono</mat-label>
+                                <input type="tel" matInput placeholder="" formControlName="phone">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="row buttons">
+            <div class="col"></div>
+            <div class="col flex-end">
+                <button (click)="manage()" [disabled]="id" class="btn"  mat-raised-button color="primary">Reservar</button>
+            </div>
+        </div>        
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="container">
+    <div class="title">
+        <h3>{{title}}</h3>
+    </div>
+    <mat-stepper headerPosition="top">
+        <mat-step>
+            <div class="form-concat">
+                <form class="form" [formGroup]="basicForm">
+                    <ng-template matStepLabel>Datos básicos</ng-template>
+                    <div class="container-grid">
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Nombres</mat-label>
+                                <input type="text" formControlName="name" matInput placeholder="Juan jose">
+                            </mat-form-field>
+                        </div>
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Apellidos</mat-label>
+                                <input type="text" formControlName="lastName" matInput placeholder="lopez">
+                            </mat-form-field>
+                        </div>
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Tipo de identificación</mat-label>
+                                <mat-select  formControlName="documentType">
+                                    <mat-option [value]="-1">Seleccione</mat-option>
+                                    @for(type of documents; track type) {
+                                        <mat-option [value]="type.id">{{type.name}}</mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="container-grid">
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Identificación</mat-label>
+                                <input type="text" formControlName="document" matInput placeholder="">
+                            </mat-form-field>
+                        </div>
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Genero</mat-label>
+                                <mat-select formControlName="gender">
+                                    <mat-option [value]="-1">Seleccione</mat-option>
+                                    @for(type of genders; track type) {
+                                        <mat-option [value]="type.id">{{type.name}}</mat-option>
+                                    }
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Nacimiento</mat-label>
+                                <input matInput [matDatepicker]="picker" formControlName="birth">
+                                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+                <div class="container-btn">
+                    <button class="btn" mat-raised-button matStepperNext>Siguiente</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step>
+            <div class="form-concat">
+                <form class="form" [formGroup]="contacForm">
+                    <ng-template matStepLabel>Datos de contacto</ng-template>
+                    <div class="container-grid">
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="indicative">
+                                <mat-label>Ind</mat-label>
+                                <input type="text" formControlName="indicative" matInput placeholder="58">
+                            </mat-form-field>
+                            <mat-form-field appearance="outline" class="input-phone">
+                                <mat-label>Telefono</mat-label>
+                                <input type="text" formControlName="phone" matInput placeholder="">
+                            </mat-form-field>
+                        </div>
+                        <div class="grid-email" >
+                            <mat-form-field appearance="outline" class="input-email">
+                                <mat-label>Correo electrónico</mat-label>
+                                <input type="email" formControlName="email" matInput placeholder="pat@example.com">
+                            </mat-form-field>
+                        </div>
+                    </div>                
+                </form>
+    
+                <form class="form" [formGroup]="credentialForm">
+                    <div [style.opacity]="showPasswordField ? 100 : 0" class="container-grid-password">
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Contraseña</mat-label>
+                                <input type="password" formControlName="password" matInput placeholder="Password">
+                            </mat-form-field>
+                        </div>
+                        <div class="grid">
+                            <mat-form-field appearance="outline" class="input">
+                                <mat-label>Contraseña</mat-label>
+                                <input type="password" formControlName="password2" matInput placeholder="Password">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="container-btn">
+                <button class="btn" mat-raised-button matStepperPrevious>Anterior</button>
+                <button class="btn" mat-raised-button color="primary" (click)="close()">Guardar</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>

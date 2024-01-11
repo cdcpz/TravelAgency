@@ -1,0 +1,40 @@
+<div class="container" (click)="click()">
+    <div class="img-hotel">
+        <img src="{{imageUrl}}" alt="imagen hotel">
+    </div>
+    <div class="container-description">
+        <div class="grid-descripcion">
+            <div class="title">
+                <h4>{{hotel}}</h4>
+            </div>
+            <div class="descripcion">
+                <div class="city">
+                    <span class="material-symbols-outlined">
+                        location_on
+                    </span>
+                    <div>
+                        <p>Ciudad: </p>{{city}}
+                        <span class="material-symbols-outlined">
+                            my_location
+                        </span>
+                        <p>Ubicacion: </p>{{location}}
+                    </div>
+                </div>
+                <div class="capacity">
+                    <span class="material-symbols-outlined">
+                        group
+                    </span>
+                    <p>Capacidad: </p>{{quantityPeople}}
+                </div>
+            </div>
+            <div class="price">
+                <span class="material-symbols-outlined">
+                    monetization_on
+                    </span>
+                <p>Valor:</p>
+                <p class="night-price">{{price|currency:'USD'}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

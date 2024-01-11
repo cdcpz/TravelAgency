@@ -1,0 +1,47 @@
+.container-card {
+    width: 200px;
+    height: 150px;
+    border-radius: 9px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid rgba(69, 61, 61, 0.239);
+    box-shadow: 1px 0px 17px 1px rgba(69, 61, 61, 0.20);
+    background-color: #445ff727;
+    &:hover {
+        transform: scale(1.1);
+      }
+
+    .title {
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 15px;
+        font-weight: 500;
+    }
+
+    .state {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        p {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            span {
+                font-size: 30px;
+            }
+
+        }
+    }
+
+}

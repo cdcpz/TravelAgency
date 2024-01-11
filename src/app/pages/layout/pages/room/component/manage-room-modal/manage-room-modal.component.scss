@@ -1,0 +1,103 @@
+.root {
+    width: 800px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: end;
+
+    .title {
+        width: 100%;
+        height: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h3 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: rgb(0, 0, 0);
+        }
+    }
+
+    .form {
+        width: 100%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 30px;
+        gap: 20px;
+        margin-bottom: 20px;
+
+        .container-grid {
+            width: 90%;
+            display: flex;
+            justify-content: start;
+            align-items: flex-start;
+            // background-color: aqua;
+            gap: 15px;
+            margin-left: 10px;
+
+            .grid {
+                width: 40%;
+                height: 100%;
+                display: flex;
+                gap: 10px;
+
+                .indicative {
+                    width: 60px;
+                    height: auto;
+                }
+
+                .input-phone {
+                    width: 160px;
+                    height: auto;
+                }
+            }
+
+            .container-preview {
+                width: 270px;
+                height: 170px;
+                padding: 10px;
+                // background-color: rebeccapurple;
+                img {
+                    width: 100%;
+                    height: 90%;
+                    border-radius: 5px;
+                }
+            }
+        }
+
+    }
+
+    .container-img {
+        width: 100%;
+        height: 200px;
+        background-color: red;
+    }
+
+    .container-btn {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+    }
+}
+
+.mat-stepper-vertical,
+.mat-stepper-horizontal {
+    display: flex;
+    height: 100%;
+}
+
+.mat-stepper-horizontal-line {
+    margin-left: 50px !important;
+    border-top-width: 1px;
+    border-top-style: solid;
+    flex: none !important;
+    height: 0;
+    margin: 0 -16px;
+    min-width: 32px !important;
+    border-top-color: var(--mat-stepper-line-color);
+}

@@ -1,0 +1,30 @@
+.container-table-rooms {
+    width: 100%;
+    height: auto;
+
+    table {
+        width: 100%;
+        
+        #action-edit {
+            color: rgb(26, 75, 198);
+
+            &:hover{
+                color: red;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .btn-create{
+        // width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 25px;
+        button{
+            background-color:  rgb(26, 75, 198);
+            color: white;
+        }
+    }
+}

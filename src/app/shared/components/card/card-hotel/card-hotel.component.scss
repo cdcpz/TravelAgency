@@ -1,0 +1,154 @@
+.container {
+    width: 100%;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
+    // padding: 16px;
+    border-radius: 9px;
+    display: flex;
+    gap: 25px;
+    box-shadow: 0px 0px 57px -35px rgba(0,0,0,0.55);
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.239);
+    // margin-bottom: 30px;
+
+    &:hover{
+        box-sizing: border-box;
+        border: 1px solid rgba(69, 61, 61, 0.239);
+        box-shadow: 1px 0px 17px 1px rgba(69,61,61,0.20);
+    }
+
+    .img-hotel {
+        // width: 10%;
+        // height: 100%;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        margin: 20px;   
+        &:hover{
+            cursor: pointer;
+        }
+
+        img {
+            width: 190px;
+            // height: 160px;
+            height: 100%;
+            border-radius: 9px;
+        }
+    }
+
+    .container-description {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        box-sizing: border-box;
+
+        .grid-descripcion {
+            width: 100%;
+            height: 100%;
+            // margin-right: 20px;
+
+            .title {
+                width: 100%;
+                height: 50px;
+                cursor: pointer;
+                display: flex;
+                align-items: end;
+                // background-color: red;
+
+                h4 {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    font-size: 22px;
+                    font-weight: 600;
+                    color: rgb(33, 33, 222);
+                }
+                &:hover {
+                    h4 {
+                        color: rgb(24, 24, 26);
+                    }
+                }
+
+            }
+
+            .price {
+                width: 100%;
+                height: 10%;
+                display: flex;
+                margin-top: 30px;
+                gap: 10px;
+                align-items: center;
+                * {
+                    margin: 0;
+                }
+                p{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .night-price {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: rgb(15, 22, 154);
+                }
+            }
+            .descripcion {
+                display: flex;
+                // align-items: center;
+                flex-direction: column;
+
+                p{
+                    margin: 0;
+                    font-weight: 600;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 16px;
+                }
+                div{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .capacity{
+                  display: flex;
+                  gap: 10px;
+                }
+            }
+
+        }
+
+        .grid-information {
+            width: 36%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .quality {
+                width: 100%;
+                height: 60px;
+            }
+
+            
+        }
+
+        .container-btn {
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            padding-right: 2px;
+
+            button {
+                background-color: #006ce4;
+                color: white;
+            }
+
+        }
+    }
+}

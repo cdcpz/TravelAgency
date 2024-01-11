@@ -1,0 +1,25 @@
+
+<div class="body-login">
+  <div class="card-container">
+    <form class="container-form" [formGroup]="authForm">
+      <div class="container-title">
+        <span id="title">{{TEXT.landing.login.title}}</span>
+      </div>
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="user">
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="input">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName="password">
+      </mat-form-field>
+      <button 
+        class="btn-ingresar" 
+        color="primary" 
+        mat-raised-buttons
+        (click)="close()"
+      >{{TEXT.landing.login.submitButton}}</button>
+    </form>
+  </div>
+
+</div>

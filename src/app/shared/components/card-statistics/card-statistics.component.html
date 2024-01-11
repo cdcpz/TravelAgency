@@ -1,0 +1,19 @@
+<div class="container-card">
+    <div class="title">
+        {{title}}
+    </div>
+    <div>
+        @for (item of items; track $index) {
+        <div class="state">
+            <div class="icon">
+                <span class="material-symbols-outlined">
+                    {{item.icon}}
+                </span>
+                <p>{{item.label}}</p>
+            </div>
+            <p>{{item.value}}</p>
+        </div>
+        }
+    </div>
+
+</div>

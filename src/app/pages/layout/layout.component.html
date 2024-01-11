@@ -1,0 +1,26 @@
+<app-toolbar (toggleFn)="drawer.toggle()"></app-toolbar>
+<div class="container">
+    <div class="container-sidenav">
+        <mat-drawer-container class="drawer-container">
+            <mat-drawer #drawer class="sidenav" mode="side">
+                <div class="profile">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="">
+                </div>
+                <div class="container-btn-sidenav">
+                    <button routerLink="/layout" mat-raised-button class="btn-sidenav">Inicio</button>
+                    <button routerLink="/layout/hoteles" mat-raised-button class="btn-sidenav">Hoteles</button>
+                    <!-- <button mat-raised-button class="btn-sidenav">Hoteles</button> -->
+                    <button routerLink="/layout/room" mat-raised-button class="btn-sidenav">Habitaciones</button>
+                    <button routerLink="/layout/booking"  mat-raised-button class="btn-sidenav">Reservas</button>                    
+                </div>
+            </mat-drawer>
+
+            <app-page-title></app-page-title>
+            <div class="pages">
+                <div class="pages-content">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </mat-drawer-container>
+    </div>
+</div>
